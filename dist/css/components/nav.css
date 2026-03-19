@@ -1,0 +1,140 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav__logo img {
+  height: 44px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__links a {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 8px 4px;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.nav__links a:hover {
+  color: var(--color-brand);
+  border-bottom-color: var(--color-brand);
+}
+
+.nav__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Hamburger */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform var(--transition), opacity var(--transition);
+  border-radius: 1px;
+}
+
+/* Mobile overlay */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg);
+  z-index: 200;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.nav__mobile.is-open {
+  display: flex;
+}
+
+.nav__mobile-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: var(--text-2xl);
+  cursor: pointer;
+  color: var(--color-text);
+  line-height: 1;
+  padding: 8px;
+}
+
+.nav__mobile-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.nav__mobile-links a {
+  font-size: var(--text-2xl);
+  font-family: var(--font-display);
+  color: var(--color-text);
+  text-decoration: none;
+  display: block;
+  padding: var(--space-1) 0;
+}
+
+.nav__mobile-links a:hover { color: var(--color-brand); }
+
+@media (max-width: 900px) {
+  .nav__links,
+  .nav__cta .btn {
+    display: none;
+  }
+  .nav__hamburger {
+    display: flex;
+  }
+}
