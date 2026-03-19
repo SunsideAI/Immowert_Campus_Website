@@ -35,6 +35,12 @@
   }
 }
 
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%); }
+  20%  { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
 /* ============================================
    HERO ANIMATIONS — play automatically on load
    ============================================ */
@@ -115,5 +121,11 @@
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .btn--primary::after,
+  .btn--secondary::after,
+  .btn--ghost::after {
+    animation: none !important;
   }
 }
