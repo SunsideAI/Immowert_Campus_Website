@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+.container--narrow {
+  max-width: var(--max-width-text);
+}
+
+.section {
+  padding-block: var(--space-12);
+}
+
+.section--sm {
+  padding-block: var(--space-8);
+}
+
+.section--lg {
+  padding-block: var(--space-16);
+}
+
+@media (max-width: 768px) {
+  .section { padding-block: var(--space-8); }
+  .section--sm { padding-block: var(--space-6); }
+  .section--lg { padding-block: var(--space-10); }
+}
