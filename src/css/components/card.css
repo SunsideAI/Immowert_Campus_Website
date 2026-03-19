@@ -19,6 +19,16 @@
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.usp-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.usp-card:hover .usp-card__icon {
+  transform: scale(1.15);
 }
 
 .usp-card__icon {
@@ -26,6 +36,7 @@
   height: 48px;
   margin-bottom: var(--space-2);
   color: var(--color-brand);
+  transition: transform 0.3s ease;
 }
 
 .usp-card__title {
@@ -57,9 +68,13 @@
 }
 
 .seminar-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
   text-decoration: none;
+}
+
+.seminar-card:hover .seminar-card__link {
+  gap: 8px;
 }
 
 .seminar-card__accent {
@@ -125,4 +140,5 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  transition: gap var(--transition);
 }

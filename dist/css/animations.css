@@ -1,0 +1,119 @@
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   HERO ANIMATIONS — play automatically on load
+   ============================================ */
+
+.hero__eyebrow {
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+.hero__title {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.22s;
+}
+
+.hero__subtitle {
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 0.38s;
+}
+
+.hero__actions {
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 0.52s;
+}
+
+.hero__visual {
+  animation: fadeInLeft 0.8s ease both;
+  animation-delay: 0.4s;
+}
+
+/* ============================================
+   SCROLL REVEAL SYSTEM
+   ============================================ */
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition-delay: var(--delay, 0ms);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variant: scale */
+[data-animate="scale"] {
+  transform: scale(0.94);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  transition-delay: var(--delay, 0ms);
+}
+
+[data-animate="scale"].is-visible {
+  transform: scale(1);
+}
+
+/* Variant: fade only (no movement) */
+[data-animate="fade"] {
+  transform: none;
+}
+
+[data-animate="fade"].is-visible {
+  transform: none;
+}
+
+/* ============================================
+   REDUCED MOTION — respect user preference
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  .hero__eyebrow,
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions,
+  .hero__visual {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
