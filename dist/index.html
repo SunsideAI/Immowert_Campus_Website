@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="/css/components/seminar-sticky.css">
 <link rel="stylesheet" href="/css/pages/home.css">
 <link rel="stylesheet" href="/css/pages/seminar.css">
+<link rel="stylesheet" href="/css/animations.css">
 
 </head>
 <body>
@@ -100,29 +101,29 @@
   <div class="container">
     <div class="intro-inner">
       <div>
-        <p class="intro__tag">Was ImmoWert Campus ausmacht</p>
-        <h2 class="intro__title">Wissen, das zählt — von Praktikern für Praktiker</h2>
-        <p class="intro__body">
+        <p class="intro__tag" data-animate>Was ImmoWert Campus ausmacht</p>
+        <h2 class="intro__title" data-animate style="--delay:80ms">Wissen, das zählt — von Praktikern für Praktiker</h2>
+        <p class="intro__body" data-animate style="--delay:160ms">
           ImmoWert Campus ist kein generisches Weiterbildungsportal. Wir sind ein Netzwerk erfahrener Sachverständiger, die ihr Spezialwissen gezielt weitergeben — an Kolleginnen und Kollegen, die bereits auf hohem Niveau arbeiten und sich punktuell vertiefen möchten.
         </p>
-        <p class="intro__body">
+        <p class="intro__body" data-animate style="--delay:220ms">
           Unsere Seminare entstehen aus der Praxis heraus. Die Referentinnen und Referenten sind selbst aktive Sachverständige mit langjähriger Erfahrung in der Immobilienwertermittlung — nicht Trainer, die über Wertermittlung sprechen, sondern Experten, die täglich damit arbeiten.
         </p>
-        <div class="warning-box" style="margin-top:var(--space-3);">
+        <div class="warning-box" data-animate style="--delay:280ms;margin-top:var(--space-3);">
           <strong>Hinweis: Kein Einsteigerprogramm</strong>
           Diese Seminare setzen solide Grundkenntnisse der Immobilienwertermittlung voraus. Für Berufseinsteiger sind sie nicht geeignet.
         </div>
       </div>
       <div class="intro__stats">
-        <div class="stat-item">
+        <div class="stat-item" data-animate style="--delay:0ms">
           <div class="stat-item__value">4</div>
           <div class="stat-item__label">Spezialisierte Seminare mit Tiefgang</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" data-animate style="--delay:100ms">
           <div class="stat-item__value">100%</div>
           <div class="stat-item__label">Praxisrelevanz — direkt anwendbares Wissen</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" data-animate style="--delay:200ms">
           <div class="stat-item__value">Von Experten</div>
           <div class="stat-item__label">Referenten aus der aktiven Sachverständigenpraxis</div>
         </div>
@@ -134,12 +135,12 @@
 <!-- USPs -->
 <section class="section" style="background-color:var(--color-bg-subtle);">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-animate>
       <p class="section-header__eyebrow">Unsere Stärken</p>
       <h2 class="section-header__title">Warum ImmoWert Campus?</h2>
     </div>
     <div class="usp-grid">
-      <div class="usp-card">
+      <div class="usp-card" data-animate style="--delay:0ms">
         <div class="usp-card__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="6" y="28" width="8" height="14" rx="2" fill="currentColor" opacity="0.4"/>
@@ -150,7 +151,7 @@
         <h3 class="usp-card__title">Expertenwissen</h3>
         <p class="usp-card__desc">Hochspezialisierte Inhalte von erfahrenen Sachverständigen — kein allgemeines Grundlagenwissen, sondern echte Vertiefung auf Profiniveau.</p>
       </div>
-      <div class="usp-card">
+      <div class="usp-card" data-animate style="--delay:80ms">
         <div class="usp-card__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="3" fill="none"/>
@@ -160,7 +161,7 @@
         <h3 class="usp-card__title">Praxisnah</h3>
         <p class="usp-card__desc">Direkt anwendbares Wissen aus der Gutachterpraxis. Keine Theorie um der Theorie willen — jedes Seminar hat sofortigen Mehrwert für Ihren Arbeitsalltag.</p>
       </div>
-      <div class="usp-card">
+      <div class="usp-card" data-animate style="--delay:160ms">
         <div class="usp-card__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="8" y="8" width="14" height="14" rx="3" stroke="currentColor" stroke-width="3" fill="none"/>
@@ -172,7 +173,7 @@
         <h3 class="usp-card__title">Flexibel</h3>
         <p class="usp-card__desc">Präsenz- und Webseminare bundesweit verfügbar. Lernen Sie in Ihrem eigenen Tempo und ohne lange Anreise — optimiert für vielbeschäftigte Selbstständige.</p>
       </div>
-      <div class="usp-card">
+      <div class="usp-card" data-animate style="--delay:240ms">
         <div class="usp-card__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="16" cy="20" r="6" stroke="currentColor" stroke-width="3" fill="none"/>
@@ -191,7 +192,7 @@
 <!-- Seminar Teasers -->
 <section class="section seminare-section" id="seminare">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" data-animate>
       <p class="section-header__eyebrow">Aktuelle Seminare</p>
       <h2 class="section-header__title">Unsere Seminarangebote</h2>
       <p class="section-header__desc">Vertiefen Sie Ihr Fachwissen mit spezialisierten Seminaren — entwickelt von und für Sachverständige der Immobilienwertermittlung.</p>
@@ -200,7 +201,7 @@
     <div class="seminar-grid">
 
       <!-- Seminar 1 -->
-      <a href="/seminare/geld-glueck-und-wahrscheinlichkeiten/" class="seminar-card">
+      <a href="/seminare/geld-glueck-und-wahrscheinlichkeiten/" class="seminar-card" data-animate style="--delay:0ms">
         <div class="seminar-card__accent"></div>
         <div class="seminar-card__body">
           <div class="seminar-card__header">
@@ -217,7 +218,7 @@
       </a>
 
       <!-- Seminar 2 -->
-      <a href="/seminare/intensivkurs-marktdatenableitung/" class="seminar-card">
+      <a href="/seminare/intensivkurs-marktdatenableitung/" class="seminar-card" data-animate style="--delay:80ms">
         <div class="seminar-card__accent"></div>
         <div class="seminar-card__body">
           <div class="seminar-card__header">
@@ -234,7 +235,7 @@
       </a>
 
       <!-- Seminar 3 -->
-      <a href="/seminare/erbbaurechte-interpretieren-beraten-bewerten/" class="seminar-card">
+      <a href="/seminare/erbbaurechte-interpretieren-beraten-bewerten/" class="seminar-card" data-animate style="--delay:160ms">
         <div class="seminar-card__accent"></div>
         <div class="seminar-card__body">
           <div class="seminar-card__header">
@@ -251,7 +252,7 @@
       </a>
 
       <!-- Seminar 4 -->
-      <a href="/seminare/digitalisierung-und-automatisierung-im-sachverstaendigenbuero/" class="seminar-card">
+      <a href="/seminare/digitalisierung-und-automatisierung-im-sachverstaendigenbuero/" class="seminar-card" data-animate style="--delay:240ms">
         <div class="seminar-card__accent"></div>
         <div class="seminar-card__body">
           <div class="seminar-card__header">
@@ -274,7 +275,7 @@
 <!-- CTA Banner -->
 <section class="section cta-banner">
   <div class="container">
-    <div class="cta-banner__inner">
+    <div class="cta-banner__inner" data-animate="scale">
       <h2 class="cta-banner__title">Bereit für das nächste Level?</h2>
       <p class="cta-banner__desc">Melden Sie sich für ein Seminar an oder nehmen Sie Kontakt auf — wir beraten Sie gerne zu den Inhalten und Formaten.</p>
       <a href="#kontakt" class="btn btn--ghost btn--lg">Jetzt anfragen</a>
@@ -286,7 +287,7 @@
 <section class="section contact-section" id="kontakt">
   <div class="container">
     <div class="contact-inner">
-      <div>
+      <div data-animate>
         <p style="font-size:var(--text-sm);font-weight:var(--font-weight-semibold);color:var(--color-brand);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:var(--space-2);">Kontakt</p>
         <h2 class="contact-text__title">Fragen oder Anmeldung?</h2>
         <p class="contact-text__body">
@@ -299,7 +300,7 @@
           </a>
         </div>
       </div>
-      <div>
+      <div data-animate style="--delay:120ms">
         <form class="contact-form form" action="https://formspree.io/f/IHRE_FORM_ID" method="POST">
           <!-- Honeypot -->
           <div class="form-honeypot" aria-hidden="true">
@@ -392,5 +393,6 @@
 
 <script src="/js/nav.js" defer></script>
 
+<script src="/js/scroll-animations.js"></script>
 </body>
 </html>
