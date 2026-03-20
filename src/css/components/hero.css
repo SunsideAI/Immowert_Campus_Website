@@ -71,6 +71,11 @@
   flex-wrap: wrap;
 }
 
+.hero__actions .btn {
+  flex: 1;
+  justify-content: center;
+}
+
 .hero__visual {
   display: flex;
   justify-content: center;
