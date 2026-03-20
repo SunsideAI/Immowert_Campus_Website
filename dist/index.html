@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="/css/components/badge.css">
 <link rel="stylesheet" href="/css/components/nav.css">
 <link rel="stylesheet" href="/css/components/hero.css">
+<link rel="stylesheet" href="/css/components/barchart.css">
 <link rel="stylesheet" href="/css/components/card.css">
 <link rel="stylesheet" href="/css/components/form.css">
 <link rel="stylesheet" href="/css/components/seminar-sticky.css">
@@ -86,10 +87,53 @@
         </div>
       </div>
       <div class="hero__visual" aria-hidden="true">
-        <div class="hero__graphic">
-          <video class="hero__video" autoplay muted playsinline>
-            <source src="https://res.cloudinary.com/djqviyb2c/video/upload/v1773932143/chart_final_fswurx.mp4" type="video/mp4">
-          </video>
+        <div class="barchart" id="hero-chart">
+          <div class="barchart__inner">
+            <div class="barchart__chart">
+              <div class="barchart__bars-wrap">
+                <div class="barchart__gridlines">
+                  <div class="barchart__gridline" style="--pct: 0.25"></div>
+                  <div class="barchart__gridline" style="--pct: 0.5"></div>
+                  <div class="barchart__gridline" style="--pct: 0.75"></div>
+                  <div class="barchart__gridline" style="--pct: 1.0"></div>
+                </div>
+                <div class="barchart__bars">
+                  <div class="barchart__col" data-i="0">
+                    <div class="barchart__value">3.690 €</div>
+                    <div class="barchart__bar"></div>
+                  </div>
+                  <div class="barchart__col" data-i="1">
+                    <div class="barchart__value">4.890 €</div>
+                    <div class="barchart__bar"></div>
+                  </div>
+                  <div class="barchart__col" data-i="2">
+                    <div class="barchart__value">5.340 €</div>
+                    <div class="barchart__bar"></div>
+                  </div>
+                  <div class="barchart__col barchart__col--highest" data-i="3">
+                    <div class="barchart__value">5.780 €</div>
+                    <div class="barchart__bar barchart__bar--highest"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="barchart__years">
+                <div class="barchart__year">2023</div>
+                <div class="barchart__year">2024</div>
+                <div class="barchart__year">2025</div>
+                <div class="barchart__year">2026</div>
+              </div>
+            </div>
+            <div class="barchart__divider">
+              <div class="barchart__divider-line"></div>
+            </div>
+            <div class="barchart__subtitle">
+              <span class="barchart__word">Marktdaten</span>
+              <span class="barchart__dot">·</span>
+              <span class="barchart__word">Wertermittlung</span>
+              <span class="barchart__dot">·</span>
+              <span class="barchart__word">Analyse</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -394,5 +438,6 @@
 <script src="/js/nav.js" defer></script>
 
 <script src="/js/scroll-animations.js"></script>
+<script src="/js/barchart.js" defer></script>
 </body>
 </html>
