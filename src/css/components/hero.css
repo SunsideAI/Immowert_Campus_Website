@@ -82,20 +82,6 @@
   align-items: center;
 }
 
-/* Animated video graphic in hero */
-.hero__graphic {
-  width: 400px;
-  height: 320px;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-}
-
-.hero__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 /* Seminar page hero */
 .hero--seminar {
