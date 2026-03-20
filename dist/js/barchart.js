@@ -8,7 +8,7 @@
     { value: 5780, height: 1.0  },
   ];
 
-  var MAX_H       = 220; // px — matches .barchart__bars-wrap height in CSS
+  var MAX_H       = 270; // px — matches .barchart__bars-wrap height in CSS
   var BAR_STAGGER = 120; // ms between each bar starting
   var BAR_DURATION = 700; // ms for each bar to grow
 
@@ -35,11 +35,13 @@
     var dots    = container.querySelectorAll('.barchart__dot');
 
     var swayStart = null;
+    // Current displayed heights — lerped toward target for silky sway
+    var smoothedH = [0, 0, 0, 0];
 
-    function setBarH(i, progress, swayFactor) {
-      var h = BARS[i].height * MAX_H * progress * swayFactor;
-      bars[i].style.height       = h + 'px';
-      values[i].style.bottom     = (h + 8) + 'px';
+    function setBarH(i, targetH) {
+      smoothedH[i] += (targetH - smoothedH[i]) * 0.06; // lerp factor: ~0.06 → ~10 frames to settle
+      bars[i].style.height   = smoothedH[i] + 'px';
+      values[i].style.bottom = (smoothedH[i] + 8) + 'px';
     }
 
     function startBuilding() {
@@ -51,7 +53,7 @@
           function step(now) {
             var t     = Math.min((now - start) / BAR_DURATION, 1);
             var eased = easeOutCubic(t);
-            setBarH(i, eased, 1);
+            setBarH(i, BARS[i].height * MAX_H * eased);
             if (t >= 0.4) {
               values[i].classList.add('is-visible');
               years[i].classList.add('is-visible');
@@ -90,7 +92,7 @@
           var f = 1
             + Math.sin(tick * s.freq  + s.phase)  * s.amp
             + Math.sin(tick * s.freq2 + s.phase2) * s.amp2;
-          setBarH(i, 1, f);
+          setBarH(i, BARS[i].height * MAX_H * f);
         }
         requestAnimationFrame(loop);
       }
