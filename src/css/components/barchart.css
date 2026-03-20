@@ -92,7 +92,8 @@
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  will-change: height;
+  will-change: transform;
+  transform-origin: bottom center;
 }
 
 .barchart__bar::after {
