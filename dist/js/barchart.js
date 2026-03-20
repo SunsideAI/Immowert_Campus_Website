@@ -8,8 +8,8 @@
     { value: 5780, height: 1.0  },
   ];
 
-  var MAX_H       = 270; // px — matches .barchart__bars-wrap height in CSS
-  var BAR_STAGGER = 120; // ms between each bar starting
+  var MAX_H        = 270; // px — matches .barchart__bars-wrap height in CSS
+  var BAR_STAGGER  = 120; // ms between each bar starting
   var BAR_DURATION = 700; // ms for each bar to grow
 
   var SWAY = [
@@ -35,25 +35,19 @@
     var dots    = container.querySelectorAll('.barchart__dot');
 
     var swayStart = null;
-    // Current displayed heights — lerped toward target for silky sway
-    var smoothedH = [0, 0, 0, 0];
-
-    function setBarH(i, targetH) {
-      smoothedH[i] += (targetH - smoothedH[i]) * 0.06; // lerp factor: ~0.06 → ~10 frames to settle
-      bars[i].style.height   = smoothedH[i] + 'px';
-      values[i].style.bottom = (smoothedH[i] + 8) + 'px';
-    }
 
     function startBuilding() {
       var totalBuildTime = BARS.length * BAR_STAGGER + BAR_DURATION;
 
-      BARS.forEach(function (_, i) {
+      // Build-up: animate height directly (one-shot, easeOutCubic)
+      BARS.forEach(function (bar, i) {
         setTimeout(function () {
           var start = performance.now();
           function step(now) {
             var t     = Math.min((now - start) / BAR_DURATION, 1);
-            var eased = easeOutCubic(t);
-            setBarH(i, BARS[i].height * MAX_H * eased);
+            var h     = bar.height * MAX_H * easeOutCubic(t);
+            bars[i].style.height   = h + 'px';
+            values[i].style.bottom = (h + 8) + 'px';
             if (t >= 0.4) {
               values[i].classList.add('is-visible');
               years[i].classList.add('is-visible');
@@ -64,12 +58,10 @@
         }, i * BAR_STAGGER);
       });
 
-      // Divider appears after all bars finish
       setTimeout(function () {
         divider.classList.add('is-visible');
       }, totalBuildTime + 100);
 
-      // Words stagger in
       words.forEach(function (word, i) {
         setTimeout(function () {
           word.classList.add('is-visible');
@@ -77,14 +69,20 @@
         }, totalBuildTime + 250 + i * 200);
       });
 
-      // Start organic sway after build completes
+      // Lock final heights, then hand off sway to transform (GPU layer, no reflow)
       setTimeout(function () {
+        BARS.forEach(function (bar, i) {
+          var finalH = bar.height * MAX_H;
+          bars[i].style.height   = finalH + 'px';
+          values[i].style.bottom = (finalH + 8) + 'px';
+        });
         swayStart = performance.now();
         startSway();
       }, totalBuildTime + 300);
     }
 
     function startSway() {
+      // Uses transform: scaleY — compositor-only, zero layout cost → silky smooth
       function loop(now) {
         var tick = now - swayStart;
         for (var i = 0; i < BARS.length; i++) {
@@ -92,14 +90,13 @@
           var f = 1
             + Math.sin(tick * s.freq  + s.phase)  * s.amp
             + Math.sin(tick * s.freq2 + s.phase2) * s.amp2;
-          setBarH(i, BARS[i].height * MAX_H * f);
+          bars[i].style.transform = 'scaleY(' + f.toFixed(5) + ')';
         }
         requestAnimationFrame(loop);
       }
       requestAnimationFrame(loop);
     }
 
-    // Start when chart enters viewport
     var obs = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) {
         obs.disconnect();
