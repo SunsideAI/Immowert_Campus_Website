@@ -1,7 +1,7 @@
 /* Modern CSS Reset — based on Andy Bell's reset */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { hanging-punctuation: first last; }
+html { hanging-punctuation: first last; overflow-x: hidden; }
 body { line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img, picture, video, canvas, svg { display: block; max-width: 100%; }
 input, button, textarea, select { font: inherit; }
