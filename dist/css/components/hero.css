@@ -118,7 +118,11 @@
   }
 
   .hero__visual {
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    animation: fadeInUp 0.7s ease both;
+    animation-delay: 0.65s;
   }
 
   .hero__title {
