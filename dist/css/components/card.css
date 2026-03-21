@@ -105,8 +105,14 @@
   color: var(--color-text);
   line-height: var(--line-height-tight);
   min-width: 0;
-  hyphens: auto;
   overflow-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+  .seminar-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .seminar-card__instructor {
