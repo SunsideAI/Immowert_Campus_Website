@@ -8,7 +8,7 @@
     { value: 5780, height: 1.0  },
   ];
 
-  var MAX_H        = 270; // px — matches .barchart__bars-wrap height in CSS
+  var MAX_H; // set dynamically from .barchart__bars-wrap height in CSS
   var BAR_STAGGER  = 120; // ms between each bar starting
   var BAR_DURATION = 700; // ms for each bar to grow
 
@@ -26,6 +26,9 @@
   function init() {
     var container = document.getElementById('hero-chart');
     if (!container) return;
+
+    var barsWrap = container.querySelector('.barchart__bars-wrap');
+    MAX_H = barsWrap ? barsWrap.clientHeight : 270;
 
     var bars    = container.querySelectorAll('.barchart__bar');
     var values  = container.querySelectorAll('.barchart__value');

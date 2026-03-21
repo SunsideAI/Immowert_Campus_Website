@@ -208,6 +208,10 @@
     border-radius: 20px;
   }
 
+  .barchart__bars-wrap {
+    height: 180px;
+  }
+
   .barchart__bars {
     gap: 12px;
   }
