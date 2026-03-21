@@ -8,6 +8,8 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-family: var(--font-sans);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge--brand {
