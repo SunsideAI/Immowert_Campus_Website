@@ -105,6 +105,8 @@
   color: var(--color-text);
   line-height: var(--line-height-tight);
   min-width: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .seminar-card__instructor {
