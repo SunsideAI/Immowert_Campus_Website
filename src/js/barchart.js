@@ -31,11 +31,8 @@
     MAX_H = barsWrap ? barsWrap.clientHeight : 270;
 
     var bars    = container.querySelectorAll('.barchart__bar');
-    var values  = container.querySelectorAll('.barchart__value');
     var years   = container.querySelectorAll('.barchart__year');
-    var divider = container.querySelector('.barchart__divider');
-    var words   = container.querySelectorAll('.barchart__word');
-    var dots    = container.querySelectorAll('.barchart__dot');
+    var caption = container.querySelector('.barchart__caption');
 
     var swayStart = null;
 
@@ -47,14 +44,10 @@
         setTimeout(function () {
           var start = performance.now();
           function step(now) {
-            var t     = Math.min((now - start) / BAR_DURATION, 1);
-            var h     = bar.height * MAX_H * easeOutCubic(t);
-            bars[i].style.height   = h + 'px';
-            values[i].style.bottom = (h + 8) + 'px';
-            if (t >= 0.4) {
-              values[i].classList.add('is-visible');
-              years[i].classList.add('is-visible');
-            }
+            var t = Math.min((now - start) / BAR_DURATION, 1);
+            var h = bar.height * MAX_H * easeOutCubic(t);
+            bars[i].style.height = h + 'px';
+            if (t >= 0.4) years[i].classList.add('is-visible');
             if (t < 1) requestAnimationFrame(step);
           }
           requestAnimationFrame(step);
@@ -62,22 +55,13 @@
       });
 
       setTimeout(function () {
-        divider.classList.add('is-visible');
-      }, totalBuildTime + 100);
-
-      words.forEach(function (word, i) {
-        setTimeout(function () {
-          word.classList.add('is-visible');
-          if (dots[i]) dots[i].classList.add('is-visible');
-        }, totalBuildTime + 250 + i * 200);
-      });
+        if (caption) caption.classList.add('is-visible');
+      }, totalBuildTime + 250);
 
       // Lock final heights, then hand off sway to transform (GPU layer, no reflow)
       setTimeout(function () {
         BARS.forEach(function (bar, i) {
-          var finalH = bar.height * MAX_H;
-          bars[i].style.height   = finalH + 'px';
-          values[i].style.bottom = (finalH + 8) + 'px';
+          bars[i].style.height = (bar.height * MAX_H) + 'px';
         });
         swayStart = performance.now();
         startSway();
