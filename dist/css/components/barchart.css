@@ -197,3 +197,32 @@
 .barchart__dot.is-visible {
   opacity: 1;
 }
+
+@media (max-width: 900px) {
+  .barchart {
+    max-width: 100%;
+  }
+
+  .barchart__inner {
+    padding: 32px 20px 20px;
+    border-radius: 20px;
+  }
+
+  .barchart__bars {
+    gap: 12px;
+  }
+
+  .barchart__years {
+    gap: 12px;
+  }
+
+  .barchart__subtitle {
+    gap: 8px;
+    letter-spacing: 1.5px;
+    font-size: 10px;
+  }
+
+  .barchart__divider {
+    margin: 16px 0 14px;
+  }
+}

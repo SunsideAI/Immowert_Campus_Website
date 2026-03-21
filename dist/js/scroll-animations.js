@@ -6,6 +6,7 @@
 
   if (targets.length) {
     if ('IntersectionObserver' in window) {
+      var isMobile = window.innerWidth < 768;
       var observer = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
@@ -15,7 +16,7 @@
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.08, rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -40px 0px' }
       );
       targets.forEach(function (el) { observer.observe(el); });
     } else {
